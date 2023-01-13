@@ -1,2 +1,2 @@
 # startup
-CS 260 startup repo
+CS 260 startup repository
