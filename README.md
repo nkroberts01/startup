@@ -1,2 +1,3 @@
 # startup
-CS 260 startup repository
+CS 260
+Web programming startup project repository
