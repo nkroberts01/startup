@@ -1,6 +1,6 @@
 # startup
 # CS 260
-# Web programming startup project repository
+# Web programming startup project repo
 
 I was able to learn the basics of Git including when to commit, pull, and push
 
