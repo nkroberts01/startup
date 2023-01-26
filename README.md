@@ -20,4 +20,5 @@ Key Features:
 <img width="239" alt="Screen Shot 2023-01-21 at 7 42 10 PM" src="https://user-images.githubusercontent.com/92897089/213898382-b4ed1c84-4521-402a-850f-bab139cd901d.png">
 
 IP Address: 3.22.162.199
+
 ssh -i /Users/nkroberts/Downloads/production.pem ubuntu@3.22.162.199
