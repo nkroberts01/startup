@@ -22,3 +22,5 @@ Key Features:
 IP Address: 3.22.162.199
 
 ssh -i /Users/nkroberts/Downloads/production.pem ubuntu@3.22.162.199
+
+A-name records is a direct mapping of domain name to IP address, C-name Records map a domain name to another domain name and then to an IP address.
