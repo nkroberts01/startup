@@ -27,3 +27,5 @@ A-name records is a direct mapping of domain name to IP address, C-name Records 
 
 Caddy acts as a gateway to different web services, hosts web application files, and can enable HTTPS.
 ~/Caddyfile
+
+Navigation through webpages is built entirely around hyperlinks. Subdomains can be added when deploying with the -s attribute along with the name for the subdomain.
