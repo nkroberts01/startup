@@ -29,3 +29,7 @@ Caddy acts as a gateway to different web services, hosts web application files, 
 ~/Caddyfile
 
 Navigation through webpages is built entirely around hyperlinks. Subdomains can be added when deploying with the -s attribute along with the name for the subdomain.
+
+CSS and HTML work together using selectors. Naming your HTML components and classes is important so that you can style them with CSS. Each type of object has specific attributes that you can edit to create whatever visual you please. 
+
+Use the "link" in your html headers to connect it with CSS. <link href="" rel="stylesheet" integrity="" crossorigin="anonymous" />
