@@ -4,6 +4,7 @@ header {
   text-align: center;
   align-items: center;
   background-color: #DCC7AA;
+  font-style: italic;
 }
 
 header h1 {
@@ -66,6 +67,15 @@ main {
   position: relative;
   top: 107px;
   background-color: #DCC7AA;
+}
+
+main .form-outline {
+  width: 300px;
+  margin: 0 auto;
+}
+
+main .btn {
+  background-color: #6B7A8F;
 }
 
 .form-wrapper {
