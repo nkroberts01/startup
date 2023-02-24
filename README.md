@@ -33,3 +33,8 @@ Navigation through webpages is built entirely around hyperlinks. Subdomains can 
 CSS and HTML work together using selectors. Naming your HTML components and classes is important so that you can style them with CSS. Each type of object has specific attributes that you can edit to create whatever visual you please. 
 
 Use the "link" in your html headers to connect it with CSS. <link href="" rel="stylesheet" integrity="" crossorigin="anonymous" />
+
+Bootstrap allows for more styling within HTML. Specific class names correspond to pre-made bootstrap classes with style attributes. Include the following link to allow for bootstrap usage.
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+"margin: 0 auto;" can be used to center an element.
