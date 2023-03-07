@@ -38,3 +38,9 @@ Bootstrap allows for more styling within HTML. Specific class names correspond t
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
 "margin: 0 auto;" can be used to center an element.
+
+You can create HTML elements in Javascript with the createElement('type') function. This is helpful for adding table rows when you have new information or under any specific conditions.
+
+Insert text into elements with element.textContext = '...' or element.innerHTML = '...'
+
+Reference specific HTML elements using the document.querySelector('#id') function
