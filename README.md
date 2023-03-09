@@ -23,12 +23,21 @@ IP Address: 3.22.162.199
 
 ssh -i /Users/nkroberts/Downloads/production.pem ubuntu@3.22.162.199
 
+Make a console script exectuable: chmod +x deploy.sh
+
 A-name records is a direct mapping of domain name to IP address, C-name Records map a domain name to another domain name and then to an IP address.
 
 Caddy acts as a gateway to different web services, hosts web application files, and can enable HTTPS.
 ~/Caddyfile
 
-Navigation through webpages is built entirely around hyperlinks. Subdomains can be added when deploying with the -s attribute along with the name for the subdomain.
+Navigation through webpages is built entirely around hyperlinks. Subdomains can be added when deploying with the -s attribute along with the name for the 
+subdomain.
+
+"div" creates a division element
+
+Use "cname" DNS record type to point to another DNS record. Used as an alias for an IP address
+
+Import fonts from google using CSS "@import url('https://fonts...');"
 
 CSS and HTML work together using selectors. Naming your HTML components and classes is important so that you can style them with CSS. Each type of object has specific attributes that you can edit to create whatever visual you please. 
 
@@ -37,10 +46,26 @@ Use the "link" in your html headers to connect it with CSS. <link href="" rel="s
 Bootstrap allows for more styling within HTML. Specific class names correspond to pre-made bootstrap classes with style attributes. Include the following link to allow for bootstrap usage.
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
+Content ] Padding ] Border ] Margin
+
+Reduce takes an array and brings it down to one value
+
+Map takes an array and creates an array of equal size maps each value to a new value
+
 "margin: 0 auto;" can be used to center an element.
+
+JSON Format: {"name": "Nate", "Year": "Sophomore", "Age": 22}
+JavaScript Object: {name: "Nate", year: "Sophomore", Age:22 }
 
 You can create HTML elements in Javascript with the createElement('type') function. This is helpful for adding table rows when you have new information or under any specific conditions.
 
 Insert text into elements with element.textContext = '...' or element.innerHTML = '...'
 
-Reference specific HTML elements using the document.querySelector('#id') function
+Reference CSS/HTML elements using the document.querySelector('#selector') function. Use querySelectorAll to get all elements
+
+Function Declarations: 
+function f(x) {}    const f = function(x) {}    const f = (x) => {}
+
+Javascript string function modifiers: i-case insensitive, g-global, m-multi line
+
+DOM textContent property sets the child text for an element
