@@ -28,19 +28,19 @@
 
         <main class="container-fluid text-center">
             <div class="container">
-                <h1>Sign Up</h1>
+                <h1 class="login-header">Sign Up</h1>
                 <form method="get" action="index.html">
                     <div class="form-outline mb-4">
-                        <input type="text" id="register_username" class="form-control" />
                         <label class="form-label" for="register_username">Username</label>
+                        <input type="text" id="register_username" class="form-control" />
                     </div>
                     <div class="form-outline mb-4">
-                        <input type="password" id="register_password" class="form-control" />
                         <label class="form-label" for="register_password">Password</label>
+                        <input type="password" id="register_password" class="form-control" />
                     </div>
                     <div class="form-outline mb-4">
+                      <label class="form-label" for="register_confirm_password">Confirm Password</label>
                         <input type="password" id="register_confirm_password" class="form-control" />
-                        <label class="form-label" for="register_confirm_password">Confirm Password</label>
                     </div>
                     <button type="button" class="btn btn-primary btn-block mb-4" onclick="register()">Register</button>
                 </form>

@@ -28,18 +28,21 @@
 
     <main class="container-fluid text-center">
       <div class="container">
-          <h1>Login</h1>
+          <h1 class="login-header">Login</h1>
           <form method="get" action="index.html">
               <div class="form-outline mb-4">
-                  <input type="text" id="login_username" class="form-control" />
                   <label class="form-label" for="login_username">Username</label>
+                  <input type="text" id="login_username" class="form-control" />
               </div>
               <div class="form-outline mb-4">
-                  <input type="password" id="login_password" class="form-control" />
                   <label class="form-label" for="login_password">Password</label>
+                  <input type="password" id="login_password" class="form-control" />
               </div>
               <button type="button" class="btn btn-primary btn-block mb-4" onclick="login()">Sign in</button>
-              <p>Don't have an account?<a href="signup.html">Sign Up</a></p>
+
+              <div class="login-bottom">
+                <p>Don't have an account?<a href="signup.html">Sign Up</a></p>
+              </div>
           </form>
       </div>
   </main>

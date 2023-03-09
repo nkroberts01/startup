@@ -18,11 +18,19 @@ span {
 .image1 {
   max-width: 100%;
   height: auto;
+  padding: 4px;
+  margin: 10px;
 }
 
-main h1 {
-  font-size: larger;
-  padding-top: 20px;
+main .flex-container {
+  padding: 4px;
+  margin: 10px;
+}
+
+main .login-header {
+  font-size: 40px;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 main p {
@@ -32,6 +40,25 @@ main p {
   border-style: solid;
   border-color: #F7882F;
   border-width: 3px;
+}
+
+main .button-newrecipe {
+  background-color: #6B7A8F;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+main .login-bottom {
+  padding: 4px;
+  margin: 10px;
+}
+
+main .form-outline {
+  flex: auto;
+  flex-direction: row;
 }
 
 
