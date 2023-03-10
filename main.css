@@ -33,12 +33,12 @@ main .login-header {
   padding-bottom: 20px;
 }
 
-main p {
+main .home-header {
   margin: auto;
-  width: 50%;
+  width: 70%;
   padding: 10px;
   border-style: solid;
-  border-color: #F7882F;
+  border-color: #6B7A8F;
   border-width: 3px;
 }
 
@@ -59,8 +59,9 @@ main .login-bottom {
 main .form-outline {
   flex: auto;
   flex-direction: row;
+  align-items: center;
+  vertical-align: middle;
 }
-
 
 menu {
   width:100%;
@@ -94,6 +95,7 @@ main {
   position: relative;
   top: 107px;
   background-color: #DCC7AA;
+  align-items: center;
 }
 
 main .form-outline {
@@ -114,6 +116,65 @@ main .btn {
   overflow: hidden;
   padding: 8px;
   width: 350px;
+}
+
+.live-filter {
+  margin-top: 15px;
+  padding-top: 35px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.search {
+  background-color: #6B7A8F;
+  border-radius: 1rem;
+  padding: 1rem 0;
+  color: white;
+}
+
+.search p {
+font-weight: bold;
+font-size: 1.2rem;
+}
+
+.search input {
+  width: 50%;
+  border: none;
+  padding: .8rem .5rem;
+}
+
+.recipe-info {
+  padding: 2rem;
+  height: 40rem;
+  overflow-y: auto;
+}
+
+.recipe-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.recipe-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 5rem rgba(0, 0, 0, .05)
+}
+
+.recipe-data img {
+  max-width: 100%;
+  height: auto;
+  width: 290px;
+  height: 150px;
+  padding-right: 10%;
+}
+
+.recipe-data div {
+
 }
 
 .form-wrapper #submit {

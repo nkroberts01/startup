@@ -26,22 +26,22 @@
     </header>
     
     <main class="container-fluid text-center">
-      <form class="form-wrapper">
-        <input type="text" id="search" placeholder="Search..." required>
-        <input type="submit" value="Go" id="submit_search">
-      </form>
       
-      
-      <div class="wrapper">
-        <div class="box box1">Search Result</div>
-        <div class="box box2">Search Result</div>
-        <div class="box box3">Search Result</div>
-        <div class="box box4">Search Result</div>
-        <div class="box box5">Search Result</div>
-        <div class="box box6">Search Result</div>
-      </div>
-      
-    </main>
+      <section class="live-filter">
+        <div class="search">
+          <p>Search for a recipe!</p>
+          <input type="text" name="search-recipes" id="search-recipes" placeholder="Search...">
+        </div>
 
+        <div class="recipe-info">
+          <ul class="recipe-list">
+            <li>Loading...</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+  
+    <script src="recipes.js"></script>
   </body>
 </html>
