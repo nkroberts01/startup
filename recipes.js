@@ -1,5 +1,7 @@
 const recipes = document.querySelector('.recipe-list');
-const recipe = document.querySelector("#search-recipes");
+const recipeSearch = document.querySelector("#search-recipes");
+
+const recipeArr = [];
 
 class Recipe {
     constructor(name, ingredients, instructions, username) {
@@ -63,6 +65,9 @@ const getRecipeData = async() => {
 
         data.map((recipe) => {
             const li = document.createElement('li');
+
+            recipeArr.push(li);
+
             li.insertAdjacentHTML('afterbegin',
             `
             <div class="recipe-data">
@@ -83,5 +88,16 @@ const getRecipeData = async() => {
         console.log(error);
     }
 }
+
+recipeSearch.addEventListener('input', (e) => {
+    const val = e.target.value;
+    console.log(val);
+
+    recipeArr.filter((currElem) => {
+        currElem.innerText.toLowerCase().includes(val.toLowerCase()) ? 
+        currElem.classList.remove('hide') : 
+        currElem.classList.add('hide');
+    })
+})
 
 getRecipeData();
