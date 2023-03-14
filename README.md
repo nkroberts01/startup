@@ -69,3 +69,12 @@ function f(x) {}    const f = function(x) {}    const f = (x) => {}
 Javascript string function modifiers: i-case insensitive, g-global, m-multi line
 
 DOM textContent property sets the child text for an element
+
+
+Fetch takes a URL and returns a promise. The following block gets and displays a random inspirational quote from a website:
+
+fetch('https://api.quotable.io/random')
+  .then((response) => response.json())
+  .then((jsonResponse) => {
+    console.log(jsonResponse);
+  });
