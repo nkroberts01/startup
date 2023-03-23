@@ -70,11 +70,38 @@ Javascript string function modifiers: i-case insensitive, g-global, m-multi line
 
 DOM textContent property sets the child text for an element
 
-
 Fetch takes a URL and returns a promise. The following block gets and displays a random inspirational quote from a website:
-
+```
 fetch('https://api.quotable.io/random')
   .then((response) => response.json())
   .then((jsonResponse) => {
     console.log(jsonResponse);
   });
+```  
+Node allows javascript to be deployed outside of a browser (in a server for example). 
+NPM lets you use pre-made packages (https://www.npmjs.com/) with the command 'npm install ...'. This downloads the modules into a directory called "node_modules". Use the package by referencing the package name as a parameter to the 'require' function.
+```
+npm install give-me-a-joke 
+```
+```
+const giveMeAJoke = require('give-me-a-joke');
+giveMeAJoke.getRandomDadJoke((joke) => {
+  console.log(joke);
+}); 
+```
+
+Express package is useful for creating a server.
+```
+const http = require('http');
+const server = http.createServer(function (req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<h1>Hello Node.js!</h1>');
+  res.end();
+});
+
+server.listen(8080, () => {
+  console.log(`Web service listening on port 8080`);
+});
+```
+
+
