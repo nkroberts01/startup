@@ -104,4 +104,27 @@ server.listen(8080, () => {
 });
 ```
 
+Create a cluster on mongo atlas, add username, password, and port (get port from connect tab). 
+Create a new database file with the following. Proccess.env variables are updated in the ~/.zprofile file.
+
+```
+const userName = process.env.MONGOUSER;
+const password = process.env.MONGOPASSWORD;
+const hostname = process.env.MONGOHOSTNAME;
+
+const { MongoClient } = require('mongodb');
+const url = `mongodb+srv://${userName}:${password}@${hostname}`;
+const client = new MongoClient(url);
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+
+  // ... perform actions on the DB collection
+
+  client.close();
+});
+```
+
+Functions defined in the database file are called from the endpoints in the index.js file.
+
+
 
