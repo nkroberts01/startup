@@ -1,4 +1,4 @@
-const recipes = document.querySelector('.recipe-list');
+const elRecipes = document.querySelector('.recipe-list');
 const recipeSearch = document.querySelector("#search-recipes");
 
 const recipeArr = [];
@@ -10,31 +10,51 @@ class Recipe {
         this.instructions = instructions;
         this.username = username;
     }
+
+
+    async addNewRecipe() {
+        var existingRecipes = JSON.parse(localStorage.getItem("allRecipes"));
+        if (existingRecipes == null) existingRecipes = [];
+        var recipeName = document.getElementById("new-recipe-name").value;
+        var ingredients = document.getElementById("new-ingredients").value;
+        var instructions = document.getElementById("new-instructions").value;
+        var username = localStorage.getItem(username);
+        
+        const newRecipe = new Recipe(recipeName, ingredients, instructions, username);
+
+        try {
+            const response = await fetch('/api/recipe', {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' }, 
+                body: JSON.stringify(newRecipe),
+            });
+
+            const recipes = await response.json();
+            localStorage.setItem('recipes', JSON.stringify(recipes));
+        } 
+        catch {
+            this.updateRecipesLocal(newRecipe);
+        }
+    }
+
+    updateRecipesLocal(newRecipe) {
+        localStorage.setItem("recipe", JSON.stringify(newRecipe));
+        existingRecipes.push(newRecipe);
+        localStorage.setItem("allRecipes", JSON.stringify(existingRecipes));
+        window.location.href = "search.html";
+    }
 }
 
-function addNewRecipe() {
-    var existingRecipes = JSON.parse(localStorage.getItem("allRecipes"));
-    if (existingRecipes == null) existingRecipes = [];
-    var recipeName = document.getElementById("new-recipe-name").value;
-    var ingredients = document.getElementById("new-ingredients").value;
-    var instructions = document.getElementById("new-instructions").value;
-    var username = localStorage.getItem(username);
-    
-    const newRecipe = new Recipe(recipeName, ingredients, instructions, username);
-    localStorage.setItem("recipe", JSON.stringify(newRecipe));
-    existingRecipes.push(newRecipe);
-    localStorage.setItem("allRecipes", JSON.stringify(existingRecipes));
-    window.location.href = "search.html";
-}
-
-const getRecipeData = async() => {
+const loadRecipeData = async() => {
+    let recipes = [];
     try {
-
-        /*
-        const res = await JSON.parse(localStorage.getItem("allRecipes") || "[]");
+        
+        const res = await fetch('/api/scores');
         const data = await res.json();
         console.log(data);
-        */
+        localStorage.setItem('recipes', JSON.stringify(recipes));
+        
+        /*
         const data = [
         {
             recipeImage: "images/recipe_example1.jpeg",
@@ -58,9 +78,10 @@ const getRecipeData = async() => {
             username: "chrisandersen99"
         }
         ];
+        */
 
         if (data) {
-            recipes.innerHTML= "";
+            elRecipes.innerHTML= "";
         }
 
         data.map((recipe) => {
@@ -81,7 +102,7 @@ const getRecipeData = async() => {
             </div>
             `)
 
-            recipes.appendChild(li);
+            elRecipes.appendChild(li);
         })
 
     } catch (error) {
@@ -100,4 +121,5 @@ recipeSearch.addEventListener('input', (e) => {
     })
 })
 
-getRecipeData();
+
+loadRecipeData();
