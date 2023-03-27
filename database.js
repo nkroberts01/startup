@@ -26,4 +26,4 @@ function getRecipes() {
   return cursor.toArray();
 }
 
-module.exports = {addRecipe, getHighScores};
+module.exports = {addRecipe, getRecipes};
