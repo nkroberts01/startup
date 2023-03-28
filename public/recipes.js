@@ -10,46 +10,47 @@ class Recipe {
         this.instructions = instructions;
         this.username = username;
     }
+}
 
+async function addNewRecipe() {
+    var existingRecipes = JSON.parse(localStorage.getItem("allRecipes"));
+    if (existingRecipes == null) existingRecipes = [];
+    var recipeName = document.getElementById("new-recipe-name").value;
+    var ingredients = document.getElementById("new-ingredients").value;
+    var instructions = document.getElementById("new-instructions").value;
+    var username = localStorage.getItem(username);
+    
+    const newRecipe = new Recipe(recipeName, ingredients, instructions, username);
 
-    async addNewRecipe() {
-        var existingRecipes = JSON.parse(localStorage.getItem("allRecipes"));
-        if (existingRecipes == null) existingRecipes = [];
-        var recipeName = document.getElementById("new-recipe-name").value;
-        var ingredients = document.getElementById("new-ingredients").value;
-        var instructions = document.getElementById("new-instructions").value;
-        var username = localStorage.getItem(username);
-        
-        const newRecipe = new Recipe(recipeName, ingredients, instructions, username);
+    try {
+        const response = await fetch('/api/recipe', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' }, 
+            body: JSON.stringify(newRecipe),
+        });
 
-        try {
-            const response = await fetch('/api/recipe', {
-                method: 'POST',
-                headers: { 'content-type': 'application/json' }, 
-                body: JSON.stringify(newRecipe),
-            });
-
-            const recipes = await response.json();
-            localStorage.setItem('recipes', JSON.stringify(recipes));
-        } 
-        catch {
-            this.updateRecipesLocal(newRecipe);
-        }
+        const recipes = await response.json();
+        localStorage.setItem('recipes', JSON.stringify(recipes));
+    } 
+    catch {
+        this.updateRecipesLocal(newRecipe);
     }
 
-    updateRecipesLocal(newRecipe) {
+    function updateRecipesLocal(newRecipe) {
         localStorage.setItem("recipe", JSON.stringify(newRecipe));
         existingRecipes.push(newRecipe);
         localStorage.setItem("allRecipes", JSON.stringify(existingRecipes));
         window.location.href = "search.html";
     }
 }
+    
+
 
 const loadRecipeData = async() => {
     let recipes = [];
     try {
         
-        const res = await fetch('/api/scores');
+        const res = await fetch('/api/recipes');
         const data = await res.json();
         console.log(data);
         localStorage.setItem('recipes', JSON.stringify(recipes));

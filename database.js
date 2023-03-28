@@ -1,4 +1,4 @@
-const {MongoClient} = require('mongodb');
+const { MongoClient } = require('mongodb');
 
 const userName = process.env.MONGOUSER;
 const password = process.env.MONGOPASSWORD;
@@ -9,12 +9,12 @@ if (!userName) {
 }
 
 const url = `mongodb+srv://${userName}:${password}@${hostname}`;
-
 const client = new MongoClient(url);
-const scoreCollection = client.db('simon').collection('recipe');
+
+const recipeCollection = client.db('startup').collection('recipe');
 
 function addRecipe(recipe) {
-  scoreCollection.insertOne(recipe);
+  recipeCollection.insertOne(recipe);
 }
 
 function getRecipes() {
@@ -22,7 +22,7 @@ function getRecipes() {
   const options = {
     limit: 100,
   };
-  const cursor = scoreCollection.find(query, options);
+  const cursor = recipeCollection.find(query, options);
   return cursor.toArray();
 }
 
