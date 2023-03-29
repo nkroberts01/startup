@@ -214,3 +214,18 @@ app.listen(port, function () {
   console.log(`Listening on port ${port}`);
 });
 ```
+
+Websocket uses an initial HTTP connection from a client which upgrades to a websocket connection in which 2 parties can send data to another. 
+Create a websocket object with the port number you wish to communicate on then send messages using on onmessage function.
+
+```
+const socket = new WebSocket('ws://localhost:9900');
+
+socket.onmessage = (event) => {
+  console.log('received: ', event.data);
+};
+
+socket.send('I am listening');
+```
+
+Connect websocket to HTML so that the user has text area to submit their message. Call your sendMessage() function when they press the 'enter' key.
