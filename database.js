@@ -18,11 +18,7 @@ function addRecipe(recipe) {
 }
 
 function getRecipes() {
-  const query = {recipe: {$gt: 0}};
-  const options = {
-    limit: 100,
-  };
-  const cursor = recipeCollection.find(query, options);
+  const cursor = recipeCollection.find();
   return cursor.toArray();
 }
 
