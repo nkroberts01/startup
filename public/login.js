@@ -1,9 +1,25 @@
-function login() {
-    const lUsernameEl = document.querySelector("#login_username");
-    const lPasswordEl = document.querySelector("#login_password");
+const { getUserByUsername } = require("../database");
 
-    localStorage.setItem("username", lUsernameEl.value);
-    localStorage.setItem("password", lPasswordEl.value);
+(async () => {
+    let authenticated = false;
+    const username = localStorage.getItem('username');
+    if (username) {
+        const nameEl = document.querySelector('#login_username');
+        nameEl.value = username;
+        const user = await getUserByUsername(nameEl.value);
+        authenticated = user?.authenticated;
+    }
+})();
 
-    window.location.href = "index.html";
+async function loginUser() {
+    loginOrCreate(`/api/auth/login`);
+}
+
+async function createUser() {
+    loginOrCreate(`/api/auth/create`);
+}
+
+async function loginOrCreate(endpoint) {
+    const username = document.querySelector('#username')?.value;
+    const password = document.querySelector('#password')?.value;
 }
