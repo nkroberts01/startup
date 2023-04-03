@@ -1,7 +1,10 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
 const app = express();
-const DB = require("./database")
+const DB = require('./database')
+
+const authCookieName = 'token';
 
 app.use(cookieParser());
 app.use(express.json());
@@ -15,10 +18,13 @@ app.get('/cookie', (req, res, next) => {
   res.send({ cookie: req.cookies });
 });
 
+app.use(express.json());
+app.use(cookieParser());
 app.use(express.static('public'));
 
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
+
 apiRouter.get('/recipes', async (_req, res) => {
   const recipes = await DB.getRecipes();
   res.send(recipes);
