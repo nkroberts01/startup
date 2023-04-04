@@ -95,7 +95,7 @@ const loadRecipeData = async() => {
             <div class="recipe-data">
               <img src=${recipe.recipeImage} alt="" srcset="">
               <div>
-                <p>${recipe.recipeName}</p>
+                <p>${recipe.name}</p>
                 <p>${recipe.ingredients}</p>
                 <p>${recipe.instructions}</p>
                 <p>${recipe.username}</p>

@@ -16,7 +16,7 @@ const client = new MongoClient(url);
 const userCollection = client.db('startup').collection('user');
 const recipeCollection = client.db('startup').collection('recipe');
 
-function getUserByUsername(username) {
+function getUser(username) {
   return userCollection.findOne({ username: username });
 }
 
@@ -45,4 +45,4 @@ function getRecipes() {
   return cursor.toArray();
 }
 
-module.exports = {createUser, getUserByUsername, getUserByToken, addRecipe, getRecipes};
+module.exports = {createUser, getUser, getUserByToken, addRecipe, getRecipes};

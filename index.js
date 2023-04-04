@@ -26,7 +26,7 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 apiRouter.post('/auth/create', async (req, res) => {
-  if (await DB.getUserByUsername(req.body.username)) {
+  if (await DB.getUser(req.body.username)) {
     res.status(409).send({ msg: 'Existing user' });
   } else {
     const user = await DB.createUser(req.body.username, req.body.password);
@@ -40,16 +40,17 @@ apiRouter.post('/auth/create', async (req, res) => {
 });
 
 apiRouter.post('/auth/login', async (req, res) => {
-  const user = await DB.getUserByUsername(req.body.username);
+  const user = await DB.getUser(req.body.username);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
       setAuthCookie(res, user.token);
-      res.send({ id: user_id });
+      res.send({ id: user._id });
       return;
     }
   }
-  res.status(401).send({ msg: 'Invalid Credentials' });
+  res.status(401).send({ msg: 'Unauthorized' });
 });
+
 
 apiRouter.delete('/auth/logout', (_req, res) => {
   res.clearCookie(authCookieName);
@@ -57,7 +58,7 @@ apiRouter.delete('/auth/logout', (_req, res) => {
 });
 
 apiRouter.get('/user/:username', async (req, res) => {
-  const user = await DB.getUserByUsername(req.params.username);
+  const user = await DB.getUser(req.params.username);
   if (user) {
     const token = req?.cookies.token;
     res.send({ username: user.username, authenticated: token === user.token });
