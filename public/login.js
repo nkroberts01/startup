@@ -2,13 +2,12 @@
     let authenticated = false;
     const username = localStorage.getItem('username');
     if (username) {
-        const nameEl = document.querySelector('#username');
+        const nameEl = document.querySelector('username');
         nameEl.value = username;
         const user = await getUser(nameEl.value);
         authenticated = user?.authenticated;
     }
 })();
-
 async function loginUser() {
     loginOrCreate(`/api/auth/login`);
 }

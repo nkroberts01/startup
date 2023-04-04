@@ -88,12 +88,13 @@ menu .nav-item {
 body {
   display: flex;
   flex-direction: column;
+  position: relative;
   background-color: #DCC7AA;
 }
 
 main {
   position: relative;
-  top: 107px;
+  top: 139px;
   background-color: #DCC7AA;
   align-items: center;
 }
