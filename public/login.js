@@ -33,7 +33,7 @@ async function loginOrCreate(endpoint) {
 
       if (response?.status === 200) {
         localStorage.setItem('username', username);
-        window.location.href = 'search.html';
+        window.location.href = 'home.html';
       } else {
         const modalEl = document.querySelector('#msgModal');
         modalEl.querySelector('.modal-body').textContent = `⚠ Error: ${body.msg}`;
