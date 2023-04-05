@@ -2,10 +2,13 @@
     let authenticated = false;
     const username = localStorage.getItem('username');
     if (username) {
-        const nameEl = document.querySelector('#username');
-        nameEl.value = username;
-        const user = await getUser(nameEl.value);
-        authenticated = user?.authenticated;
+    const nameEl = document.querySelector('#username');
+    nameEl.value = username;
+    const user = await getUser(nameEl.value);
+    authenticated = user?.authenticated;
+  }
+    if (authenticated) {
+        document.querySelector('#username-top').textContent = username;
     }
 })();
 async function loginUser() {
