@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const app = express();
 const DB = require('./database')
+const { peerProxy } = require('./peerProxy.js');
 
 const authCookieName = 'token';
 
@@ -115,3 +116,5 @@ const port = process.argv.length > 2 ? process.argv[2] : 4000;
 app.listen(port, function () {
   console.log(`Listening on port ${port}`);
 });
+
+peerProxy(httpService);
