@@ -18,7 +18,7 @@ async function addNewRecipe() {
     var recipeName = document.getElementById("new-recipe-name").value;
     var ingredients = document.getElementById("new-ingredients").value;
     var instructions = document.getElementById("new-instructions").value;
-    var username = localStorage.getItem(username);
+    var username = localStorage.getItem("username");
     
     const newRecipe = new Recipe(recipeName, ingredients, instructions, username);
 
@@ -31,25 +31,23 @@ async function addNewRecipe() {
 
         const recipes = await response.json();
         localStorage.setItem('recipes', JSON.stringify(recipes));
+        window.location.href = 'search.html';
     } 
     catch {
         this.updateRecipesLocal(newRecipe);
     }
-
-    function updateRecipesLocal(newRecipe) {
-        localStorage.setItem("recipe", JSON.stringify(newRecipe));
-        existingRecipes.push(newRecipe);
-        localStorage.setItem("allRecipes", JSON.stringify(existingRecipes));
-        window.location.href = "search.html";
-    }
 }
-    
 
+function updateRecipesLocal(newRecipe) {
+    localStorage.setItem("recipe", JSON.stringify(newRecipe));
+    existingRecipes.push(newRecipe);
+    localStorage.setItem("allRecipes", JSON.stringify(existingRecipes));
+    window.location.href = "search.html";
+}
 
 const loadRecipeData = async() => {
     let recipes = [];
     try {
-        
         const res = await fetch('/api/recipes');
         const data = await res.json();
         console.log(data);
