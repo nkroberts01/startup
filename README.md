@@ -228,4 +228,17 @@ socket.onmessage = (event) => {
 socket.send('I am listening');
 ```
 
-Connect websocket to HTML so that the user has text area to submit their message. Call your sendMessage() function when they press the 'enter' key.
+Connect websocket to HTML so that the user has text area to submit their message. Call your sendMessage() function when they press the 'enter' key. Download the ws package and create a cwebsocket server in the same directory as your index.js using the same port. 
+
+```
+function sendMessage() {
+  const msgEl = document.querySelector('#new-msg');
+  const msg = msgEl.value;
+  if (!!msg) {
+    appendMsg('me', 'me', msg);
+    const name = document.querySelector('#my-name').value;
+    socket.send(`{"name":"${name}", "msg":"${msg}"}`);
+    msgEl.value = '';
+  }
+}
+```
