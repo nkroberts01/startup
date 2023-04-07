@@ -242,3 +242,19 @@ function sendMessage() {
   }
 }
 ```
+
+Steps to convert Javascript project to React
+
+1) Create service directory and add JS service files, package.json, package-lock.json. Delete the node_modules directory. Run 'npm install' in the service directory. Make src directory with all of the React code. Run node 'index.js' and use curl to test endpoints on the local host.
+
+2) Commit to github.
+
+3) Run 'npx create-react-app template-react'
+
+4) Clean up the template code- uninstall NPM packages (test), delete unnecessary files, rename js files to have jsx extension, update manifest.json to represent your app, clean up index.html 
+
+5) Copy over generated files from the template-react to your app repo directory. Delete the template-react directory, run 'npm install' in the app directory.
+
+6) Convert react bootstrap- run 'npm install bootstrap react-bootstrap' and add "import 'bootstrap/dist/css/bootstrap.min.css';" to components to use bootstrap styling.
+
+2) 
