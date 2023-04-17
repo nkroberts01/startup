@@ -1,8 +1,14 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Login } from './login/login'
+import { Chat } from './chat/chat'
+import { Home } from './home/home'
+import { NewRecipe } from './new-recipe/newrecipe';
+import { Search } from './search/search';
 
 function App() {
   return (
-    <body class="text-light">
+    <div class="top text-light">
     <header>
         <h1>Recipes 260</h1>
         <div class="user">
@@ -22,11 +28,9 @@ function App() {
         </menu>
       </header>
 
-    <main class="container-fluid text-center">
-        Recipes 260
-    </main>
+    <Login />
 
-  </body>
+  </div>
   );
 }
 
