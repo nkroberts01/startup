@@ -1,3 +1,5 @@
+import React from 'react';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
@@ -6,8 +8,29 @@ import { Chat } from './chat/chat'
 import { Home } from './home/home'
 import { NewRecipe } from './new-recipe/newrecipe';
 import { Search } from './search/search';
+import { AuthState } from './login/authState';
 
 function App() {
+  const [username, setUsername] = React.useState(localStorage.getItem('username') || '');
+  const [authState, setAuthState] = React.useState(AuthState.Unknown);
+
+  React.useEffect(() => {
+    if (username) {
+      fetch(`/api/username/${username}`)
+        .then((response) => {
+          if (response.status === 200) {
+            return response.json();
+          }
+        })
+        .then((user) => {
+          const state = user?.authenticated ? AuthState.Authenticated: AuthState.Unauthenticated;
+          setAuthState(state);
+        });
+    } else {
+      setAuthState(AuthState.Unauthenticated);
+    }
+  }, [username]);
+
   return (
     <BrowserRouter>
       <div class="top text-light">
