@@ -124,10 +124,13 @@ client.connect(err => {
 });
 ```
 
+HTTP Headers examples: Host, Content-Type, Cookie
+
 Functions defined in the database file are called from the endpoints in the index.js file.
 
 Authentication services require 3 key endpoints- create, login, and getme. 
 Uses bcrypt, cooker-parser, express, mongodb, uuid.
+Cookies allow a server to store data on the client
 
 ```
 const { MongoClient } = require('mongodb');
@@ -243,6 +246,10 @@ function sendMessage() {
 }
 ```
 
+JSX: Used to inject HTML into javascript, componentize your HTML, and allow for composability of your HTML
+
+Linux Daemon- A service process that runs in the background and supervises the system or provides functionality to other processes. It executes independent of a user and starts when a computer is rebooted. (example: pm2)
+
 Steps to convert Javascript project to React
 
 1) Create service directory and add JS service files, package.json, package-lock.json. Delete the node_modules directory. Run 'npm install' in the service directory. Make src directory with all of the React code. Run node 'index.js' and use curl to test endpoints on the local host.
@@ -257,4 +264,4 @@ Steps to convert Javascript project to React
 
 6) Convert react bootstrap- run 'npm install bootstrap react-bootstrap' and add "import 'bootstrap/dist/css/bootstrap.min.css';" to components to use bootstrap styling.
 
-2) 
+
