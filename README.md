@@ -124,6 +124,9 @@ client.connect(err => {
 });
 ```
 
+HTTP Responses- 
+100s: Informational, 200s: Successful, 300s: Redirection, 400s: Client Error, 500s: Server Error
+
 HTTP Headers examples: Host, Content-Type, Cookie
 
 Functions defined in the database file are called from the endpoints in the index.js file.
